@@ -1,41 +1,36 @@
 package gologger
-import "fmt"
 
 type GoLogger struct {
 }
 
-
-func getLogger() GoLogger {
+func GetLogger() GoLogger {
 	return GoLogger{}
 }
 
-
-
 func (log GoLogger) Log(message string) {
-	fmt.Println("[LOG]", message)
+	logPrinter(logInstance{ "LOG", message})
 }
-
 
 func (log GoLogger) Message(message string) {
-	fmt.Println("[MSG]", message)
+	logPrinter(logInstance{ "MESSAGE", message})
 }
 
+func (log GoLogger) Info(message string) {
+	logPrinter(logInstance{ "INFO", message})
+}
 
 func (log GoLogger) Warn(message string) {
-	fmt.Println("[WRN]", message)
+	logPrinter(logInstance{ "WARN", message})
 }
 
-
 func (log GoLogger) Debug(message string) {
-	fmt.Println("[DBG]", message)
+	logPrinter(logInstance{ "DEBUG", message})
 }
 
 func (log GoLogger) Error(message string) {
-	fmt.Println("[ERR]", message)
+	logPrinter(logInstance{ "EROR", message})
 }
 
-
-
 func (log GoLogger) ReplaceMessage(message string) {
-	fmt.Println("[RM]", message)
+	logPrinter(logInstance{ "RS", message})
 }
