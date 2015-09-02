@@ -2,9 +2,9 @@ package gologger
 
 import (
 	"runtime"
-	"fmt"
 	"path/filepath"
 	"strings"
+	"github.com/sadlil/gologger/printer/console"
 )
 
 
@@ -21,7 +21,7 @@ func logPrinter( log logInstance ) {
 
 func logPrint(log logInstance, fileName string, lineNumber int) {
 	fileName = parseFileName(fileName)
-	fmt.Printf("[%s] [%s] [%d] : %s\n", log.logType, fileName, lineNumber, log.message)
+	console.ConsolePrinter(log.logType, log.message, fileName, lineNumber)
 }
 
 func parseFileName(fileName string) string {
@@ -30,3 +30,5 @@ func parseFileName(fileName string) string {
 	fileName = fileName[lastIndex +1 : len(fileName)]
 	return fileName
 }
+
+
