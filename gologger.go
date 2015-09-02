@@ -12,25 +12,25 @@ func (log GoLogger) Log(message string) {
 }
 
 func (log GoLogger) Message(message string) {
-	logPrinter(logInstance{ "MESSAGE", message})
+	logPrinter(logInstance{ "MSG", message})
 }
 
 func (log GoLogger) Info(message string) {
-	logPrinter(logInstance{ "INFO", message})
+	logPrinter(logInstance{ "INF", message})
 }
 
 func (log GoLogger) Warn(message string) {
-	logPrinter(logInstance{ "WARN", message})
+	logPrinter(logInstance{ "WRN", message})
 }
 
 func (log GoLogger) Debug(message string) {
-	logPrinter(logInstance{ "DEBUG", message})
+	logPrinter(logInstance{ "DBG", message})
 }
 
 func (log GoLogger) Error(message string) {
-	logPrinter(logInstance{ "EROR", message})
+	logPrinter(logInstance{ "ERR", message})
 }
 
 func (log GoLogger) ReplaceMessage(message string) {
-	logPrinter(logInstance{ "RS", message})
+	logPrinter(logInstance{ "RSS", message})
 }
