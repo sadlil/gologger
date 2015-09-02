@@ -9,8 +9,8 @@ import (
 
 
 type logInstance struct {
-	message string
 	logType string
+	message string
 }
 
 
@@ -27,6 +27,6 @@ func logPrint(log logInstance, fileName string, lineNumber int) {
 func parseFileName(fileName string) string {
 	fileName = filepath.ToSlash(fileName)
 	lastIndex := strings.LastIndex(fileName, "/")
-	fileName = fileName[lastIndex +1 : len(fileName)-1]
+	fileName = fileName[lastIndex +1 : len(fileName)]
 	return fileName
 }
