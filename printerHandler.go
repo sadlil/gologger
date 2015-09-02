@@ -4,7 +4,7 @@ import (
 	"runtime"
 	"path/filepath"
 	"strings"
-	"github.com/sadlil/gologger/printer/console"
+	"github.com/sadlil/gologger/printer"
 )
 
 
@@ -21,7 +21,7 @@ func logPrinter( log logInstance ) {
 
 func logPrint(log logInstance, fileName string, lineNumber int) {
 	fileName = parseFileName(fileName)
-	console.ConsolePrinter(log.logType, log.message, fileName, lineNumber)
+	printer.Print(log.logType, log.message, fileName, lineNumber)
 }
 
 func parseFileName(fileName string) string {
