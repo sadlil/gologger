@@ -9,8 +9,6 @@ Still in Development Phase.
 Developed:
 
     - Colored Log into Console
-    
-
 Developing:
 
     - File Logging support
@@ -19,20 +17,17 @@ Developing:
 How to Get:
 
     go get github.com/sadlil/gologger
-
-    
 How To Use:
     
     import "github.com/sadlil/gologger"
     
-    logger = gologger.GetGetLogger()
+    logger = gologger.GetLogger()
     logger.Log(Message)
 Displays
 
     [Log] [Calling File Name] [Line Number] Message
     
 You Can also use those functions now --
-
 
     logger.Log(message string)
     logger.Message(message string)
