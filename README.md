@@ -7,10 +7,12 @@ Still in Development Phase.
 
 
 Developed:
+
     - Colored Log into Console
     
 
 Developing:
+
     - File Logging support
     - Elasticsearch logging support
     
@@ -20,18 +22,18 @@ How to Get:
 
     
 How To Use:
-    Now It is simple and easy for.
     
     import "github.com/sadlil/gologger"
     
     logger = gologger.GetGetLogger()
     logger.Log(Message)
-    
-    Displays
+Displays
+
     [Log] [Calling File Name] [Line Number] Message
     
-    
-    You Can also use those functions now --
+You Can also use those functions now --
+
+
     logger.Log(message string)
     logger.Message(message string)
     logger.Info(message string)
