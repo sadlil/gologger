@@ -1,17 +1,27 @@
 package console
-import "fmt"
 
-func ConsolePrinter(logType string, message string, fileName string, lineNumber int) {
-	color := getColor(logType)
+import (
+	"fmt"
+	"github.com/sadlil/gologger/logger"
+)
+
+func ConsolePrinter(log logger.LogInstance, fileName string, lineNumber int) {
+	color := getColor(log)
 	color.Set()
-	fmt.Printf("[%s] [%s] [%d] %s\n", logType, fileName, lineNumber, message)
+	fmt.Printf("[%s] [%s] [%d] %s\n", log.LogType, fileName, lineNumber, log.Message)
 	Unset()
 }
 
 
-func getColor(logType string) *Color {
+func getColor(log logger.LogInstance) *Color {
 	var color *Color
-	switch logType {
+
+	if(log.LoggerInit.Location == "simple") {
+		color = New(Reset)
+		return color
+	}
+
+	switch log.LogType {
 	case "LOG" :
 		color = New(Reset)
 		break

@@ -1,36 +1,48 @@
 package gologger
 
-type GoLogger struct {
+import "github.com/sadlil/gologger/logger"
+
+const (
+	CONSOLE string = "console"
+	FILE string = "file"
+	ELASTICSEARCH string = "es"
+	ConsoleAndFile = "cf"
+	SimpleLog string = "simple"
+	ColoredLog string = "color"
+)
+
+type GoLogger struct  {
+	Logger logger.GoLogger
 }
 
-func GetLogger() GoLogger {
-	return GoLogger{}
+func GetLogger(printerType string, location string) GoLogger {
+	return GoLogger{logger.GoLogger{printerType, location}}
 }
 
 func (log GoLogger) Log(message string) {
-	logPrinter(logInstance{ "LOG", message})
+	logPrinter(logger.LogInstance{ "LOG", message, log.Logger})
 }
 
 func (log GoLogger) Message(message string) {
-	logPrinter(logInstance{ "MSG", message})
+	logPrinter(logger.LogInstance{ "MSG", message, log.Logger})
 }
 
 func (log GoLogger) Info(message string) {
-	logPrinter(logInstance{ "INF", message})
+	logPrinter(logger.LogInstance{ "INF", message, log.Logger})
 }
 
 func (log GoLogger) Warn(message string) {
-	logPrinter(logInstance{ "WRN", message})
+	logPrinter(logger.LogInstance{ "WRN", message, log.Logger})
 }
 
 func (log GoLogger) Debug(message string) {
-	logPrinter(logInstance{ "DBG", message})
+	logPrinter(logger.LogInstance{ "DBG", message, log.Logger})
 }
 
 func (log GoLogger) Error(message string) {
-	logPrinter(logInstance{ "ERR", message})
+	logPrinter(logger.LogInstance{ "ERR", message, log.Logger})
 }
 
 func (log GoLogger) ReplaceMessage(message string) {
-	logPrinter(logInstance{ "RSS", message})
+	logPrinter(logger.LogInstance{ "RSS", message, log.Logger})
 }

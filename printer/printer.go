@@ -1,6 +1,16 @@
 package printer
-import "github.com/sadlil/gologger/printer/console"
+import (
+	"github.com/sadlil/gologger/printer/console"
+	"github.com/sadlil/gologger/logger"
+	"fmt"
+)
 
-func Print(logType string, message string, fileName string, lineNumber int) {
-	console.ConsolePrinter(logType, message, fileName, lineNumber)
+func Print(log logger.LogInstance, fileName string, lineNumber int) {
+	if(log.LoggerInit.PrinterType == "console") {
+		console.ConsolePrinter(log, fileName, lineNumber)
+	} else if(log.LoggerInit.PrinterType == "file") {
+		fmt.Println("File")
+	} else if(log.LoggerInit.PrinterType == "es") {
+		fmt.Println("ES")
+	}
 }

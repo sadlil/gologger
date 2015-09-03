@@ -5,23 +5,17 @@ import (
 	"path/filepath"
 	"strings"
 	"github.com/sadlil/gologger/printer"
+	"github.com/sadlil/gologger/logger"
 )
 
-
-type logInstance struct {
-	logType string
-	message string
-}
-
-
-func logPrinter( log logInstance ) {
+func logPrinter( log logger.LogInstance ) {
 	_, fileName, lineNumber, _ := runtime.Caller(2)
 	logPrint(log, fileName, lineNumber)
 }
 
-func logPrint(log logInstance, fileName string, lineNumber int) {
+func logPrint(log logger.LogInstance, fileName string, lineNumber int) {
 	fileName = parseFileName(fileName)
-	printer.Print(log.logType, log.message, fileName, lineNumber)
+	printer.Print(log, fileName, lineNumber)
 }
 
 func parseFileName(fileName string) string {
@@ -30,5 +24,3 @@ func parseFileName(fileName string) string {
 	fileName = fileName[lastIndex +1 : len(fileName)]
 	return fileName
 }
-
-
