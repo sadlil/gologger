@@ -6,9 +6,9 @@ import (
 	"time"
 )
 
-func Print(log logger.LogInstance, packageName string, fileName string, lineNumber int, funcname string, time time.Time) {
+func Print(log logger.LogInstance, packageName string, fileName string, lineNumber int, funcName string, time time.Time) {
 	if(log.LoggerInit.PrinterType == "console") {
-		console.ConsolePrinter(log, packageName, fileName, lineNumber, funcname, time)
+		console.ConsolePrinter(log, packageName, fileName, lineNumber, funcName, time)
 	} else if(log.LoggerInit.PrinterType == "file") {
 		fmt.Println("File")
 	} else if(log.LoggerInit.PrinterType == "es") {
