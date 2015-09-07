@@ -28,9 +28,10 @@ How To Use:
     logger = gologger.GetLogger(gologger.CONSOLE, gologger.ColoredLog) 
     // Displays Colorful log in console
     
-    logger = gologger.GetLogger(gologger.FILE, fileName) // Log all the message in the given file.
-    If file is not presents then creates it. if filename is "" creates a default file named
-    logs.txt in ur project directory.
+    logger = gologger.GetLogger(gologger.FILE, fileName) 
+    // Log all the message in the given file.
+    If file is not presents then creates it. if filename is "" creates 
+    a default file named logs.txt in ur project directory.
     
     
     
