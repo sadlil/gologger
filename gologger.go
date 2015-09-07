@@ -6,7 +6,7 @@ const (
 	CONSOLE string = "console"
 	FILE string = "file"
 	ELASTICSEARCH string = "es"
-	ConsoleAndFile = "cf"
+	MYSQL string = "mysql"
 	SimpleLog string = "simple"
 	ColoredLog string = "color"
 )
