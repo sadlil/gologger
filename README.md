@@ -1,7 +1,7 @@
 # gologger
 
 A Simple Easy to use go logger library.  Displays Colored log into console in any unix or windows platform.
-You can even store ur logs in any file or elasticsearch.
+You can even store your logs in file, ElasticSearch or MySQL Database.
 
 Still in Development Phase. 
 
@@ -47,3 +47,13 @@ You Can also use those functions now --
     logger.Warn(message string)
     logger.Debug(message string)
     logger.Error(message string)
+
+You can use two or more same type or diffrent type logger in same application. 
+
+    logger1 = gologger.GetLogger(gologger.CONSOLE, gologger.SimpleLog)
+    logger2 = gologger.GetLogger(gologger.FILE, "filelog.log")
+    
+    logger1.log("Hello Console") // loges into console.
+    logger2.log("Hello File") // loges into file.
+
+
