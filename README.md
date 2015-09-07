@@ -8,11 +8,12 @@ Still in Development Phase.
 
 Developed:
 
-    - Colored Log into Console
+    - Colored and Simple Log into Console
+    - File Logging
 Developing:
 
-    - File Logging support
     - Elasticsearch logging support
+    - MySQL logging support
     
 How to Get:
 
@@ -21,11 +22,17 @@ How To Use:
     
     import "github.com/sadlil/gologger"
     
-    logger = gologger.GetLogger()
+    logger = gologger.GetLogger(gologger.CONSOLE, gologger.SimpleLog) // Displays Simple plain log in console
+    logger = gologger.GetLogger(gologger.CONSOLE, gologger.ColoredLog) // Displays Colorful log in console
+    
+    logger = gologger.GetLogger(gologger.FILE, fileName) // Log all the message in the given file. If file is not presents then creates it. if filename is "" creates a deafult file nammed logs.txt in ur project directory.
+    
+    
+    
     logger.Log(Message)
 Displays
 
-    [Log] [Calling File Name] [Line Number] Message
+    [Log] [Time] [Package Name::File Name::Function Name] [Line Number] Message
     
 You Can also use those functions now --
 
