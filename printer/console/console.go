@@ -3,12 +3,13 @@ package console
 import (
 	"fmt"
 	"github.com/sadlil/gologger/logger"
+	"time"
 )
 
-func ConsolePrinter(log logger.LogInstance, fileName string, lineNumber int) {
+func ConsolePrinter(log logger.LogInstance, packageName string, fileName string, lineNumber int, funcName string, time time.Time) {
 	color := getColor(log)
 	color.Set()
-	fmt.Printf("[%s] [%s] [%d] %s\n", log.LogType, fileName, lineNumber, log.Message)
+	fmt.Printf("[%s] [%s] [%s::%s::%s] [%d] %s\n", log.LogType, time.Format("2006-01-02 15:04:05.99"), packageName, fileName, funcName, lineNumber, log.Message)
 	Unset()
 }
 

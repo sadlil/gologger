@@ -2,25 +2,49 @@ package gologger
 
 import (
 	"runtime"
-	"path/filepath"
 	"strings"
 	"github.com/sadlil/gologger/printer"
 	"github.com/sadlil/gologger/logger"
+	"time"
+	"path"
 )
 
 func logPrinter( log logger.LogInstance ) {
-	_, fileName, lineNumber, _ := runtime.Caller(2)
-	logPrint(log, fileName, lineNumber)
+	info := retrieveCallInfo()
+	timer := time.Now()
+	logPrint(log, info, timer)
 }
 
-func logPrint(log logger.LogInstance, fileName string, lineNumber int) {
-	fileName = parseFileName(fileName)
-	printer.Print(log, fileName, lineNumber)
+func logPrint(log logger.LogInstance, info *callerInfo, time time.Time) {
+	printer.Print(log, info.packageName, info.fileName, info.line, info.funcName, time)
 }
 
-func parseFileName(fileName string) string {
-	fileName = filepath.ToSlash(fileName)
-	lastIndex := strings.LastIndex(fileName, "/")
-	fileName = fileName[lastIndex +1 : len(fileName)]
-	return fileName
+type callerInfo struct  {
+	packageName string
+	fileName string
+	funcName string
+	line int
+}
+
+func retrieveCallInfo() *callerInfo {
+	pc, file, line, _ := runtime.Caller(3)
+	_, fileName := path.Split(file)
+	parts := strings.Split(runtime.FuncForPC(pc).Name(), ".")
+	pl := len(parts)
+	packageName := ""
+	funcName := parts[pl-1]
+
+	if parts[pl-2][0] == '(' {
+		funcName = parts[pl-2] + "." + funcName
+		packageName = strings.Join(parts[0:pl-2], ".")
+	} else {
+		packageName = strings.Join(parts[0:pl-1], ".")
+	}
+
+	return &callerInfo{
+		packageName: packageName,
+		fileName:    fileName,
+		funcName:    funcName,
+		line:        line,
+	}
 }
