@@ -77,6 +77,8 @@ You can even store your logs in file, ElasticSearch or MySQL Database.
   if you think i need to modify my library.
 
 
-
+#### Used Libraries
+1. Color Console - [faith/color](https://github.com/fatih/color)
+2. ElasticSearch - [olivere/elastic](https://github.com/olivere/elastic)
 
 
