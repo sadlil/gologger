@@ -6,20 +6,20 @@ You can even store your logs in file, ElasticSearch or MySQL Database.
 **Still in Development Phase.** 
 
 
-## Developed:
+### Developed:
 
     - Colored and Simple Log into Console
     - File Logging
     - ElasticSearch Logging
     
-## Developing:
+### Developing:
 
     - MySQL logging support
     
-## How to Get:
+### How to Get:
 
     go get github.com/sadlil/gologger
-## How To Use:
+### How To Use:
 
     import "github.com/sadlil/gologger"
    
@@ -49,12 +49,12 @@ You can even store your logs in file, ElasticSearch or MySQL Database.
     // If you only want to change the default index name you can do that 
     // by sending "/YourIndex", it will use default localhost for ES.
     
-## Display:
+### Display:
 
     logger.Log(Message) -> displays in console.
     [Log] [Time] [Package Name::File Name::Function Name] [Line Number] Message
     
-## You Can also use those functions now --
+### You Can also use those functions now --
 
     logger.Log(message string)
     logger.Message(message string)
@@ -63,7 +63,7 @@ You can even store your logs in file, ElasticSearch or MySQL Database.
     logger.Debug(message string)
     logger.Error(message string)
 
-## You can use two or more same type or diffrent type logger in same application. 
+### You can use two or more same type or diffrent type logger in same application. 
 
     logger1 = gologger.GetLogger(gologger.CONSOLE, gologger.SimpleLog)
     logger2 = gologger.GetLogger(gologger.FILE, "filelog.log")
