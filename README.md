@@ -51,6 +51,7 @@ How To Use:
     // by sending "/YourIndex", it will use default localhost for ES.
     
 Display:
+
     logger.Log(Message) -> displays in console.
     [Log] [Time] [Package Name::File Name::Function Name] [Line Number] Message
     
