@@ -3,7 +3,6 @@
 A Simple Easy to use go logger library.  Displays Colored log into console in any unix or windows platform.
 You can even store your logs in file, ElasticSearch or MySQL Database.
 
-**Still in Development Phase.** 
 
 **Build Status** 
 [![Build Status](https://travis-ci.org/sadlil/gologger.svg)](https://travis-ci.org/sadlil/gologger)
@@ -16,7 +15,7 @@ You can even store your logs in file, ElasticSearch or MySQL Database.
     
 #### Developing:
 
-    - MySQL logging support
+    - 
     
 #### How to Get:
 
