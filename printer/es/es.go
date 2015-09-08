@@ -4,7 +4,6 @@ import (
 	"time"
 	"strings"
 	elastigo "github.com/mattbaird/elastigo/lib"
-	"fmt"
 )
 
 func ESPrinter(log logger.LogInstance, packageName string, fileName string, lineNumber int, funcName string, time time.Time) {
