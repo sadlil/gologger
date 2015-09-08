@@ -41,16 +41,17 @@ How To Use:
     
     ElasticSearch::
     logger = gologger.GetLogger(gologger.ELASTICSEARCH, location)
-    // Logs everything into elasticsearch. if location is "" then its looks for elasticsearch by default
-    // in http://localhost:9200 and logs stored in index 'gologger'.
-    // If you want to provide custom location and index for your log you must provide the location 
-    // in this format the "http://Your_ES_Url:ES_Port/Index", If you only want to change the default
-    // index name you can do that by sending "/YourIndex", it will use default localhost for ES.
+    // Logs everything into elasticsearch. if location is "" then it 
+    // looks for elasticsearch by default in http://localhost:9200 
+    // and logs stored in index 'gologger'.
+    // If you want to provide custom location and index for your log 
+    // you must provide the location in this format 
+    // "http://Your_ES_Url:ES_Port/Index", 
+    // If you only want to change the default index name you can do that 
+    // by sending "/YourIndex", it will use default localhost for ES.
     
-    
-    logger.Log(Message)
-Displays
-
+Display:
+    logger.Log(Message) -> displays in console.
     [Log] [Time] [Package Name::File Name::Function Name] [Line Number] Message
     
 You Can also use those functions now --
