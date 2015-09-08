@@ -2,9 +2,9 @@ package printer
 import (
 	"github.com/sadlil/gologger/printer/console"
 	"github.com/sadlil/gologger/logger"
-	"fmt"
 	"time"
 	"github.com/sadlil/gologger/printer/file"
+	"github.com/sadlil/gologger/printer/es"
 )
 
 func Print(log logger.LogInstance, packageName string, fileName string, lineNumber int, funcName string, time time.Time) {
@@ -13,6 +13,6 @@ func Print(log logger.LogInstance, packageName string, fileName string, lineNumb
 	} else if(log.LoggerInit.PrinterType == "file") {
 		file.FilePrinter(log, packageName, fileName, lineNumber, funcName, time)
 	} else if(log.LoggerInit.PrinterType == "es") {
-		fmt.Println("ES")
+		es.ESPrinter(log, packageName, fileName, lineNumber, funcName, time)
 	}
 }
