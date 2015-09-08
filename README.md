@@ -5,7 +5,8 @@ You can even store your logs in file, ElasticSearch or MySQL Database.
 
 **Still in Development Phase.** 
 
-**Build Status** [![Build Status](https://travis-ci.org/sadlil/gologger.svg)](https://travis-ci.org/sadlil/gologger)
+**Build Status** 
+[![Build Status](https://travis-ci.org/sadlil/gologger.svg)](https://travis-ci.org/sadlil/gologger)
 
 #### Developed:
 
