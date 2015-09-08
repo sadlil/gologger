@@ -7,4 +7,3 @@ install:
   - go get "github.com/mattn/go-isatty"
   - go get "github.com/shiena/ansicolor"
   - go get "github.com/mattbaird/elastigo"
-
