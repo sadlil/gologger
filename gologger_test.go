@@ -5,7 +5,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"os"
 	"fmt"
-	elastigo "github.com/mattbaird/elastigo/lib"
+	//elastigo "github.com/mattbaird/elastigo/lib"
 )
 
 
