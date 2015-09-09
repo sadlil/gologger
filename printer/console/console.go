@@ -27,7 +27,7 @@ func getColor(log logger.LogInstance) *Color {
 		color = New(Reset)
 		break
 	case "MSG" :
-		color = New(Reset)
+		color = New(FgBlue)
 		break
 	case "INF" :
 		color = New(FgGreen)
