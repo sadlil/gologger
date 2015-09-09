@@ -19,7 +19,7 @@ You can even store your logs in file, ElasticSearch or MySQL Database.
     
 #### How to Get:
 ``` sh
-go get github.com/sadlil/gologger
+$ go get github.com/sadlil/gologger
 ```
 #### How To Use:
 ``` go
@@ -54,6 +54,8 @@ logger = gologger.GetLogger(gologger.ELASTICSEARCH, location)
 #### Display:
 ``` go
 logger.Log(Message) -> displays in console.
+```
+``` sh
 [Log] [Time] [Package Name::File Name::Function Name] [Line Number] Message
 ```    
 #### Logger Functions Available:
