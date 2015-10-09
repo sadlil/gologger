@@ -14,8 +14,11 @@ type GoLogger struct  {
 	Logger logger.GoLogger
 }
 
-func GetLogger(printerType string, location string) GoLogger {
-	return GoLogger{logger.GoLogger{printerType, location}}
+func GetLogger(selector ...string) GoLogger {
+	if len(selector) == 0  {
+		return GoLogger{logger.GoLogger{CONSOLE, ColoredLog}}
+	}
+	return GoLogger{logger.GoLogger{selector[0], selector[1]}}
 }
 
 func (log GoLogger) Log(message string) {
