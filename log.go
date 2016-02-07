@@ -50,7 +50,7 @@ func (l *Log) Message() string {
 }
 
 type caller struct {
-	line     int32
+	line     int
 	method   string
 	fileName string
 	pkg      string
@@ -59,7 +59,7 @@ type caller struct {
 	timestamp time.Time
 }
 
-func (c *caller) Line() int32 {
+func (c *caller) Line() int {
 	return c.line
 }
 

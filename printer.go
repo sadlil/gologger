@@ -45,8 +45,8 @@ func (c consolePrinter) Formatf(format string, args ...interface{}) string {
 
 func (c consolePrinter) Print(log *Log) {
 	if c.colored {
-		fmt.Println("colored", log.message)
+		fmt.Println("colored", log.caller)
 		return
 	}
-	fmt.Println(log.message)
+	fmt.Println(log.caller)
 }
