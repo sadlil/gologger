@@ -21,7 +21,7 @@ func Get(name string, configs ...interface{}) *Logger {
 func New(name string, t LoggerType, config ...interface{}) *Logger {
 	return &Logger{
 		log: &Log{},
-
+		printer: newConsolePrinter(false),
 	}
 }
 
@@ -39,6 +39,12 @@ func (l *Logger) L(level int) *Logger {
 	return l
 }
 
-func (l *Logger) Info() {
+func (l *Logger) Info(args ...interface{}) {
+	m := l.printer.Format(args...)
+	l.log.message = m;
+	l.printer.Print(l.log)
+}
 
+func (l *Logger) reset() {
+	l.log = &Log{}
 }
