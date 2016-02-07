@@ -44,9 +44,7 @@ func init() {
 // In development, this will be done using the GOPATH environment variable.
 // For production builds, where the GOPATH environment will not be set, the
 // GOPATH can be included in the binary by passing ldflags, for example:
-//
-//     GO_LDFLAGS="$GO_LDFLAGS -X github.com/facebookgo/stack.gopath $GOPATH"
-//     go install "-ldflags=$GO_LDFLAGS" my/pkg
+// Used from github.com/facebookgo/stack
 func stripGOPATH(f string) string {
 	for _, p := range gopaths {
 		if strings.HasPrefix(f, p) {
@@ -57,6 +55,7 @@ func stripGOPATH(f string) string {
 }
 
 // StripPackage strips the package name from the given Func.Name.
+// Used from github.com/facebookgo/stack
 func stripPackage(n string) string {
 	slashI := strings.LastIndex(n, "/")
 	if slashI == -1 {

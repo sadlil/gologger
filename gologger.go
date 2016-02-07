@@ -18,7 +18,7 @@ const (
 	// to glog.
 	Glog LoggerType = "glog"
 
-	// Console Logger. Simple Will use the fmt package. Two modes available for
+	// Console Logger. Simply Will use the fmt package. Two modes available for
 	// Logging. Colored Log or Plain text log to Console. Provides Options as
 	// `gologger.Plain` and `gologger.Colored`
 	Console = "console"
