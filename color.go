@@ -9,8 +9,7 @@ Thanx to https://github.com/fatih [Faith] For this library.
 
 **/
 
-
-package console
+package gologger
 
 import (
 	"fmt"

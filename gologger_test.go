@@ -1,13 +1,12 @@
 package gologger
 
 import (
-	"testing"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"os"
-	"fmt"
+	"testing"
 	//elastigo "github.com/mattbaird/elastigo/lib"
 )
-
 
 func TestSimpleConsole(t *testing.T) {
 	log := GetLogger(CONSOLE, SimpleLog)
@@ -36,7 +35,6 @@ func TestColorConsole(t *testing.T) {
 	log.Log("Log Log")
 	fmt.Println()
 }
-
 
 func TestDefaultFileLog(t *testing.T) {
 	defaultFileLog := GetLogger(FILE, "")
@@ -67,6 +65,7 @@ func TestFileLog(t *testing.T) {
 	assert.NotEqual(t, initFileSize, afterFileSize)
 	os.RemoveAll("customfolder/customlog.txt")
 }
+
 /*
 func TestEsLog(t *testing.T) {
 	esLog := GetLogger(ELASTICSEARCH, "http://localhost:9200/customlogindex")
@@ -77,7 +76,8 @@ func TestEsLog(t *testing.T) {
 	client.SetFromUrl("http://localhost:9200")
 	hits, err := client.Search("customlogindex", "", nil, nil)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 	assert.NotEqual(t, hits.Hits.Hits, 0)
 }*/

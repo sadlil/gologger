@@ -1,29 +1,31 @@
 package gologger
 
 import (
+	"path"
 	"runtime"
 	"strings"
-	"github.com/sadlil/gologger/printer"
-	"github.com/sadlil/gologger/logger"
 	"time"
-	"path"
+	"os"
 )
 
-func logPrinter( log logger.LogInstance ) {
+func logPrinter(log LogInstance) {
 	info := retrieveCallInfo()
 	timer := time.Now()
 	logPrint(log, info, timer)
 }
 
-func logPrint(log logger.LogInstance, info *callerInfo, time time.Time) {
-	printer.Print(log, info.packageName, info.fileName, info.line, info.funcName, time)
+func logPrint(log LogInstance, info *callerInfo, time time.Time) {
+	Print(log, info.packageName, info.fileName, info.line, info.funcName, time)
+	if log.LogType == "CRT" {
+		os.Exit(1)
+	}
 }
 
-type callerInfo struct  {
+type callerInfo struct {
 	packageName string
-	fileName string
-	funcName string
-	line int
+	fileName    string
+	funcName    string
+	line        int
 }
 
 func retrieveCallInfo() *callerInfo {
